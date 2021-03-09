@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 public class FXMLController {
 	
 	Parole elenco ;
+	
 
     @FXML
     private ResourceBundle resources;
@@ -35,11 +36,19 @@ public class FXMLController {
     @FXML
     void doInsert(ActionEvent event) {
     	// TODO
+    	txtResult.clear();
+    	String p = txtParola.getText();
+    	elenco.addParola(p);
+    	for(String s : elenco.getElenco())
+    		txtResult.appendText(s+"\n");
     }
 
     @FXML
     void doReset(ActionEvent event) {
-    	// TODO
+    	elenco.reset();
+    	txtResult.clear();
+    	txtParola.clear();
+    	
     }
 
     @FXML
